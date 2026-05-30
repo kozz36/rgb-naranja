@@ -1,1 +1,13 @@
+# Engram local database — NEVER commit (would defeat chunk-based merge model)
+.engram/engram.db
+.engram/engram.db-shm
+.engram/engram.db-wal
+.engram/*.db
+.engram/*.db-shm
+.engram/*.db-wal
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini
 .engram/chunks/
