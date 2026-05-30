@@ -23,8 +23,10 @@ en rainbow.
 
 **Solución:** forzar el controlador Aura de vuelta a **Gen1**
 (`EC 3E 52 53 00`). En Gen1 el header direccionable responde al control
-estándar de OpenRGB (modo Direct sobre las zonas `Aura Addressable`). Las zonas
-se dimensionan a 30 LEDs para cubrir todo el anillo.
+estándar de OpenRGB (modo Direct sobre las zonas `Aura Addressable`). La zona
+se dimensiona a **22 LEDs**, el conteo real del anillo (confirmado por el
+firmware vía `GetSlotInfo`=`0x16` y verificado visualmente con un patrón de
+colores — ver `scripts/count_leds.py` y `count_leds_fine.py`).
 
 > Nota: este truco evita tener que parchear OpenRGB o hacer ingeniería inversa
 > del protocolo Gen2. El parche nativo (Fase 3/4) queda pendiente como mejora.

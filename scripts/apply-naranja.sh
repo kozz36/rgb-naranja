@@ -8,7 +8,8 @@
 #   3. Forzar el controlador Aura a Gen1 (EC 3E 52 53 00) hace que el header
 #      acepte el control estándar de OpenRGB (device "ASUS ROG STRIX X870-A",
 #      zonas Aura Addressable 1/2/3 en modo Direct).
-#   4. Las zonas se dimensionan a 30 LEDs para cubrir el anillo completo.
+#   4. La zona se dimensiona a 22 LEDs (conteo real del anillo, confirmado por
+#      firmware GetSlotInfo=0x16 y verificación visual con patrón de colores).
 #
 # Idempotente: se puede ejecutar en cada arranque.
 set -u
@@ -21,9 +22,10 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #    (cooler) sea controlable por OpenRGB.
 "$PY" "$HERE/restore_gen1.py" >/dev/null 2>&1 || true
 
-# 2) Asegurar tamaño de zonas direccionables (anillo del cooler ~22-30 LEDs).
+# 2) Asegurar tamaño de zonas direccionables. El cooler (anillo) son 22 LEDs.
+#    Zona 1 = header del cooler; zonas 2/3 sin uso conocido, se dejan a 22 igual.
 "$OPENRGB" --noautoconnect -d "ASUS ROG STRIX X870-A GAMING WIFI" \
-    -z 1 -sz 30 -z 2 -sz 30 -z 3 -sz 30 >/dev/null 2>&1 || true
+    -z 1 -sz 22 -z 2 -sz 22 -z 3 -sz 22 >/dev/null 2>&1 || true
 
 # 3) Cargar el perfil naranja (RAM, GPU, teclado, placa onboard).
 "$OPENRGB" --noautoconnect --profile naranja >/dev/null 2>&1 || true
