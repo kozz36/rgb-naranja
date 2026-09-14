@@ -1,0 +1,2 @@
+# Thermalright panel 87ad:70db: active-seat access only; no global permissions.
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="87ad", ATTR{idProduct}=="70db", TAG+="uaccess"

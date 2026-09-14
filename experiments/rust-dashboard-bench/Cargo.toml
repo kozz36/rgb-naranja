@@ -1,0 +1,10 @@
+[package]
+name = "rust-dashboard-jpeg"
+version = "0.1.0"
+edition = "2024"
+
+# This prototype links the host's libturbojpeg; it has no Cargo dependencies.
+
+[[bin]]
+name = "rust-dashboard-jpeg"
+path = "src/main.rs"

@@ -11,3 +11,9 @@ Thumbs.db
 .DS_Store
 desktop.ini
 .engram/chunks/
+
+# Thermalright development artifacts
+.codegraph/
+__pycache__/
+*.py[cod]
+/experiments/rust-dashboard-bench/target/

@@ -2,6 +2,16 @@
 
 Configuración para mantener **todos los componentes RGB en naranja fijo (`#FF8000`)**.
 
+## Thermalright OLED
+
+El panel OLED Thermalright tiene un dashboard de usuario con telemetría, control
+DPMS y renderizadores clásico, cinematográfico CPU y GPU opcional. La guía pública
+incluye requisitos, vista previa offline, instalación, permisos USB, rollback y
+pruebas: [docs/thermalright-dashboard.md](docs/thermalright-dashboard.md).
+
+> Nota de compatibilidad: las secciones y tablas Deepcool siguientes son legado y
+> permanecen sin cambios; consulte la guía Thermalright para el panel OLED.
+
 ## Hardware
 
 | Componente | Control | Detalle |

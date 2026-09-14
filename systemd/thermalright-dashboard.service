@@ -1,0 +1,19 @@
+# THERMALRIGHT_DASHBOARD_MANAGED_COPY
+# User-manager lifecycle: linger or another user session can keep this alive after
+# graphical logout.  An unavailable active-seat uaccess ACL exits cleanly; restart
+# retries when USB access returns.  This unit neither changes linger nor hardware.
+[Unit]
+Description=Thermalright OLED host dashboard
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Environment=TRCC_DAEMON=0
+Environment=QT_QPA_PLATFORM=offscreen
+ExecStart=%h/.local/share/rgb-naranja/trcc-venv/bin/python %h/.local/bin/thermalright-dashboard.py --continuous --renderer cinematic-gpu
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target
